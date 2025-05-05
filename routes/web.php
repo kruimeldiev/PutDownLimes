@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
-use App\Models\Recipe;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,14 +15,14 @@ use App\Models\Recipe;
 |
 */
 
-// All recipes
 Route::get('/', [RecipeController::class, 'index']);
 
-// Show create recipe form
-Route::get('/recipes/create', [RecipeController::class, 'create']);
+Route::get('/recipes/create', [RecipeController::class, 'goToCreateRecipe']);
 
-// Store recipe data
-Route::post('/recipes', [RecipeController::class, 'store']);
+Route::post('/recipes', [RecipeController::class, 'postNewRecipeAndRedirect']);
 
-// Single recipe
-Route::get('/recipes/{recipe}', [RecipeController::class, 'show']);
+Route::get('/recipes/{recipe}', [RecipeController::class, 'recipeDetails']);
+
+Route::delete('/recipes/{id}', [RecipeController::class, 'deleteRecipe']);
+
+Route::get('/auth/login', [AuthController::class, 'goToLoginPage']);

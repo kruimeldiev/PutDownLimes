@@ -1,8 +1,15 @@
 <x-layout>
-    @include('partials._search')
-
-    <a href="/" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
-    </a>
+    <div class="flex justify-between items-center mx-4 mb-4">
+        <a href="/" class="inline-block text-black"><i class="fa-solid fa-arrow-left"></i> Back</a>
+        
+        <form method="POST" action="/recipes/{{$recipe->id}}">
+            @csrf
+            @method('DELETE')
+            <button class="text-red-500 hover:text-red-700">
+                <i class="fa-solid fa-trash"></i> Delete
+            </button>
+        </form>
+    </div>
     <div class="mx-4">
         <x-card-bg class="p-10">
             <div class="flex flex-col items-center justify-center text-center">

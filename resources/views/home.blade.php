@@ -11,6 +11,6 @@
     </div>
 
     <div class="mt-6 p4">
-        {{$recipes->links()}}
+        <!-- TODO: Link to the sign up page -->
     </div>
 </x-layout>
